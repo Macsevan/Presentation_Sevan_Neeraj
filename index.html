@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Price Prediction | Home</title>
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+
+<body>
+  <header>
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fefefe;
+        color: #222;
+      }
+
+      header {
+        background-color: #007acc;
+        padding: 1rem;
+        color: white;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .navbar h1 {
+        font-size: 1.5rem;
+      }
+
+      .navbar nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.2rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .navbar nav ul li a.active,
+      .navbar nav ul li a:hover {
+        text-decoration: underline;
+      }
+
+      .page-content {
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+      }
+
+      .page-content h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-content p {
+        max-width: 800px;
+        margin: 0.5rem auto;
+        line-height: 1.6;
+      }
+
+      .team-section {
+        background-color: #f5f9ff;
+        padding: 3rem 1.5rem;
+        text-align: center;
+        border-top: 1px solid #ddd;
+      }
+
+      .team-section h2 {
+        font-size: 2rem;
+      }
+
+      .team-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        margin-top: 2rem;
+      }
+
+      .team-member {
+        max-width: 220px;
+        background: white;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .team-member:hover {
+        transform: translateY(-6px);
+      }
+
+      .profile-pic {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #007acc;
+        margin-bottom: 1rem;
+      }
+
+      .credit-note {
+        max-width: 700px;
+        margin: 2rem auto 0;
+        font-size: 1.1rem;
+        color: #333;
+      }
+
+      footer {
+        background-color: #1c1c1c;
+        padding: 20px;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #f0f0f0;
+        margin-top: auto;
+      }
+    </style>
+    <div class="navbar">
+      <h1>🚗 Car Price Prediction Using Regression Model</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="workflow.html">Workflow</a></li>
+          <li><a href="tech.html">Tech Stack</a></li>
+          <li><a href="eda.html">EDA</a></li>
+          <li><a href="performance.html">Performance</a></li>
+          <li><a href="results.html">Results</a></li>
+          <li><a href="screenshots.html">Screenshots</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="page-content">
+    <h2>Welcome to the Car Price Prediction Project</h2>
+    <p> This Regression Analysis-powered web application predicts the selling price of used cars based on key parameters
+      like year, kilometers driven, fuel type, and more. </p>
+    <p> The website includes everything — from project overview to EDA, model performance, and screenshots — presented
+      in a clean, engaging way. Use the navigation bar above to explore each section. </p>
+  </section>
+  <section class="team-section">
+    <h2>👨‍🎓 Project Contributors</h2>
+    <div class="team-container">
+      <div class="team-member"> <img src="static/sevan_photo.jpg" alt="Sevan Kumar" class="profile-pic" />
+        <h3>Sevan Kumar</h3>
+        <p>Roll No: 21MA10053</p>
+      </div>
+      <div class="team-member"> <img src="static/neeraj_photo.jpg" alt="Neeraj Kumar" class="profile-pic" />
+        <h3>Neeraj Kumar</h3>
+        <p>Roll No: 21MA10035</p>
+      </div>
+    </div>
+    <div class="credit-note">
+      <p> 🎓 This entire Car Price Prediction project has been developed exclusively by <strong>Sevan Kumar</strong> and
+        <strong>Neeraj Kumar</strong>, students of <strong>IIT Kharagpur</strong>, as part of RTSM Project.
+      </p>
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 Car Price Prediction | Created by Sevan Kumar & Neeraj Kumar</p>
+  </footer>
+</body>
+
+</html>

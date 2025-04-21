@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech Stack | Car Price Prediction</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <h1>🚗 Car Price Prediction</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="workflow.html">Workflow</a></li>
+          <li><a href="tech.html" class="active">Tech Stack</a></li>
+          <li><a href="eda.html">EDA</a></li>
+          <li><a href="performance.html">Model Performance</a></li>
+          <li><a href="results.html">Results</a></li>
+          <li><a href="screenshots.html">Screenshots</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-content">
+    <h2>🛠️ Technology Stack</h2>
+    <p>
+      We leveraged a wide range of technologies in this project to handle data analysis, machine learning, and web deployment.
+      Here's a breakdown of the tools and why they were chosen:
+    </p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>Python</h4>
+        <p>Primary language used for data handling, model training, and backend logic. Powerful, versatile, and has a rich ML ecosystem.</p>
+      </div>
+      <div class="feature-card">
+        <h4>Pandas & NumPy</h4>
+        <p>For data cleaning, preprocessing, numerical calculations, and dataframe manipulations.</p>
+      </div>
+      <div class="feature-card">
+        <h4>Matplotlib & Seaborn</h4>
+        <p>Used during EDA to visualize data distributions, correlations, and patterns effectively.</p>
+      </div>
+      <div class="feature-card">
+        <h4>Scikit-learn</h4>
+        <p>Used for model training (Linear Regression, Random Forest), splitting datasets, and evaluating results.</p>
+      </div>
+      <div class="feature-card">
+        <h4>Streamlit</h4>
+        <p>Lightweight web framework that allows us to build interactive ML apps easily and quickly.</p>
+      </div>
+      <div class="feature-card">
+        <h4>HTML/CSS/JS</h4>
+        <p>Used for building presentation pages that showcase each part of the project beautifully with responsive UI.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 40px;"> Code : </h3>
+
+    <pre style="background:#f4f4f4; padding: 16px; border-radius: 6px; overflow-x:auto;">
+
+      import pandas as pd
+      import numpy as np
+      import matplotlib.pyplot as plt
+      from sklearn.model_selection import train_test_split
+      from sklearn.linear_model import LinearRegression
+      
+
+      cars_data = pd.read_csv('Cardetails.csv')
+      
+
+      cars_data.head()
+      
+
+      import seaborn as sns
+      
+
+      plt.figure(figsize=(9,6))
+      sns.regplot(data=cars_data, x='year', y='selling_price', scatter_kws={'alpha':0.5})
+      plt.title('Car Age vs. Selling Price')
+      plt.xlabel('Car Age (Years)')
+      plt.ylabel('Selling Price (in ₹)')
+      plt.grid(True)
+      plt.tight_layout()
+      plt.savefig('static/age-price-regplot.png')
+      plt.show()
+      
+
+      # Drop rows with essential missing values
+      sns.barplot(data=cars_data, x='fuel', y='selling_price', estimator='mean', hue='fuel', palette='pastel', legend=False, errorbar=None)
+      
+      # Feature Engineering
+      cars_data.loc[:, 'age'] = 2024 - cars_data['year']
+      cars_data.loc[:, 'brand'] = cars_data['name'].apply(lambda x: x.split()[0])
+      cars_data.loc[:, 'mileage'] = cars_data['mileage'].replace('[^0-9.]', '', regex=True).astype(float)
+      
+      # 1. Age vs. Selling Price
+      plt.figure(figsize=(8, 5))
+      sns.barplot(data=cars_data, x='fuel', y='selling_price', estimator='mean', hue='fuel', palette='pastel', legend=False, errorbar=None)
+      plt.title('Age vs. Selling Price')
+      plt.xlabel('Car Age (Years)')
+      plt.ylabel('Selling Price (₹)')
+      plt.tight_layout()
+      plt.savefig('static/age_vs_price.png')
+      plt.close()
+      
+      # 2. Average Price by Fuel Type
+      plt.figure(figsize=(7, 5))
+      sns.boxplot(data=cars_data, x='transmission', y='selling_price', hue='transmission', palette='Set2', legend=False)
+      plt.title('Average Selling Price by Fuel Type')
+      plt.xlabel('Fuel Type')
+      plt.ylabel('Average Price (₹)')
+      plt.tight_layout()
+      plt.savefig('static/avg_price_by_fuel.png')
+      plt.close()
+      
+      # 3. Transmission vs. Selling Price (Box Plot)
+      plt.figure(figsize=(7, 5))
+      sns.barplot(data=top_brands, x='selling_price', y='brand', hue='brand', palette='deep', legend=False)
+      plt.title('Transmission Type vs. Selling Price')
+      plt.xlabel('Transmission')
+      plt.ylabel('Selling Price (₹)')
+      plt.tight_layout()
+      plt.savefig('static/transmission_boxplot.png')
+      plt.close()
+      
+      # 4. Top 10 Brands by Avg Price
+      top_brands = cars_data.groupby('brand')['selling_price'].mean().sort_values(ascending=False).head(10).reset_index()
+      plt.figure(figsize=(8, 6))
+      sns.barplot(data=top_brands, x='selling_price', y='brand', hue='brand', palette='deep', legend=False)
+      plt.title('Top 10 Brands by Avg Selling Price')
+      plt.xlabel('Average Price (₹)')
+      plt.ylabel('Brand')
+      plt.tight_layout()
+      plt.savefig('static/top_brands_price.png')
+      plt.close()
+      
+      # 5. Mileage vs. Selling Price
+      plt.figure(figsize=(8, 5))
+      sns.regplot(data=cars_data, x='mileage', y='selling_price', scatter_kws={'alpha': 0.3}, color='green')
+      plt.title('Mileage vs. Selling Price')
+      plt.xlabel('Mileage (kmpl)')
+      plt.ylabel('Selling Price (₹)')
+      plt.tight_layout()
+      plt.savefig('static/mileage_vs_price.png')
+      plt.close()
+      
+
+      from IPython.display import Image, display, Markdown
+      
+      # Dictionary containing titles and corresponding image paths inside 'static' folder
+      plots = {
+          "Fuel-wise Average Selling Price": "static/fuel-price-bar.png",
+          "Transmission-wise Price Boxplot": "static/transmission_boxplot.png",
+          "Top Brands vs Selling Price": "static/top_brands_price.png",
+          "Correlation Matrix Heatmap": "static/top-brands-price-barh.png",
+          "Selling Price Distribution": "static/transmission-price-boxplot.png"
+      }
+      
+      # Display each image with a markdown header
+      for title, filename in plots.items():
+          display(Markdown(f"### 📊 {title}"))
+          display(Image(filename=filename))
+      
+      
+
+      cars_data.drop(columns=['torque'], inplace=True)
+      
+
+      cars_data.head()
+      
+
+      cars_data.shape
+      
+ [markdown]
+      # # preprocessing
+      
+ [markdown]
+      # ### NULL ChecK
+      
+
+      cars_data.isnull().sum()
+      
+
+      cars_data.dropna(inplace=True)
+      
+
+      cars_data.shape
+      
+ [markdown]
+      # ### Duplicate Check
+      
+
+      cars_data.duplicated().sum()
+      
+
+      cars_data.drop_duplicates(inplace=True)
+      
+
+      cars_data.shape
+      
+
+      cars_data
+      
+
+      cars_data.info()
+      
+ [markdown]
+      # # Data Analysis
+      
+
+      for col in cars_data.columns:
+          print('Unique values of ' + col)
+          print(cars_data[col].unique())
+          print("======================")
+      
+
+      def get_brand_name(car_name):
+          car_name = car_name.split(' ')[0]
+          return car_name.strip()
+      
+
+      def clean_data(value):
+          value = value.split(' ')[0]
+          value = value.strip()
+          if value == '':
+              value = 0
+          return float(value)
+      
+
+      get_brand_name('Maruti  Swift Dzire VDI')
+      
+
+      cars_data['name'] = cars_data['name'].apply(get_brand_name)
+      
+
+      cars_data['name'].unique()
+      
+
+      cars_data['mileage'] = cars_data['mileage'].apply(clean_data)
+      
+
+      cars_data['max_power'] = cars_data['max_power'].apply(clean_data)
+      
+
+      cars_data['engine'] = cars_data['engine'].apply(clean_data)
+      
+
+      for col in cars_data.columns:
+          print('Unique values of ' + col)
+          print(cars_data[col].unique())
+          print("======================")
+      
+
+      cars_data['name'].replace(['Maruti', 'Skoda', 'Honda', 'Hyundai', 'Toyota', 'Ford', 'Renault',
+             'Mahindra', 'Tata', 'Chevrolet', 'Datsun', 'Jeep', 'Mercedes-Benz',
+             'Mitsubishi', 'Audi', 'Volkswagen', 'BMW', 'Nissan', 'Lexus',
+             'Jaguar', 'Land', 'MG', 'Volvo', 'Daewoo', 'Kia', 'Fiat', 'Force',
+             'Ambassador', 'Ashok', 'Isuzu', 'Opel'],
+                                [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
+                                ,inplace=True)
+      
+
+      cars_data['transmission'].unique()
+      
+
+      cars_data['transmission'].replace(['Manual', 'Automatic'],[1,2], inplace=True)
+      
+
+      cars_data['seller_type'].unique()
+      
+
+      cars_data['seller_type'].replace(['Individual', 'Dealer', 'Trustmark Dealer'],[1,2,3], inplace=True)
+      
+
+      cars_data.info()
+      
+
+      cars_data['fuel'].unique()
+      
+
+      cars_data['fuel'].replace(['Diesel', 'Petrol', 'LPG', 'CNG'],[1,2,3,4], inplace=True)
+      
+
+      cars_data.info()
+      
+
+      cars_data.reset_index(inplace=True)
+      
+
+      cars_data
+      
+
+      cars_data['owner'].unique()
+      
+
+      cars_data['owner'].replace(['First Owner', 'Second Owner', 'Third Owner',
+             'Fourth & Above Owner', 'Test Drive Car'],
+                                 [1,2,3,4,5], inplace=True)
+      
+
+      cars_data.drop(columns=['index'], inplace=True)
+      
+
+      for col in cars_data.columns:
+          print('------------')
+          print(col)
+          print(cars_data[col].unique())
+      
+
+      cars_data.isnull().sum()
+      
+
+      input_data = cars_data.drop(columns=['selling_price'])
+      output_data =cars_data['selling_price']
+      
+
+      x_train, x_test, y_train, y_test = train_test_split(input_data, output_data, test_size=0.2)
+      
+ [markdown]
+      # # model Creation
+      
+
+      model = LinearRegression()
+      
+ [markdown]
+      # # Train Model
+      
+
+      model.fit(x_train, y_train)
+      
+
+      predict = model.predict(x_test)
+      
+
+      predict
+      
+
+      x_train.head(1)
+      
+
+      input_data_model = pd.DataFrame(
+          [[5,2022,12000,1,1,1,1,12.99,2494.0,100.6,5.0]],
+          columns=['name','year','km_driven','fuel','seller_type','transmission','owner','mileage','engine','max_power','seats'])
+      
+
+      input_data_model
+      
+
+      model.predict(input_data_model)
+      
+
+      data = {
+          "Car": ["Maruti Swift", "Hyundai i20", "Honda City", "Toyota Innova", "Ford EcoSport"],
+          "Actual Price": [4.80, 5.60, 6.20, 7.80, 6.40],
+          "Predicted Price": [4.62, 5.49, 6.03, 7.50, 6.25]
+      }
+      
+      df = pd.DataFrame(data)
+      df["Residual"] = df["Actual Price"] - df["Predicted Price"]
+      
+      # Residual Plot
+      plt.figure(figsize=(8, 4))
+      sns.scatterplot(x=df["Predicted Price"], y=df["Residual"], hue=df["Car"], s=100)
+      plt.axhline(0, linestyle='--', color='red')
+      plt.title("Residual Plot (Sample Predictions)")
+      plt.xlabel("Predicted Price (₹ Lakh)")
+      plt.ylabel("Residual (Actual - Predicted)")
+      plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+      plt.tight_layout()
+      plt.savefig("static/sample_residual_plot.png")
+      plt.show()
+      
+      # Error Distribution
+      plt.figure(figsize=(8, 4))
+      sns.histplot(df["Residual"], kde=True, bins=10, color="skyblue")
+      plt.title("Error Distribution (Sample Predictions)")
+      plt.xlabel("Residual (₹ Lakh)")
+      plt.ylabel("Frequency")
+      plt.tight_layout()
+      plt.savefig("static/sample_error_distribution.png")
+      plt.show()
+      
+
+      import pickle as pk
+      
+
+      pk.dump(model,open('model.pkl','wb'))
+      
+
+      
+    </pre>
+  </section>
+
+  <footer>
+    <p>© 2025 Car Price Prediction Project | Made by Sevan Kumar & Neeraj Kumar</p>
+  </footer>
+</body>
+</html>

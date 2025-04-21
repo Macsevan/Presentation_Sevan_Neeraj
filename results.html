@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results | Car Price Prediction</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="navbar">
+                <h1>🚗 Car Price Prediction</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="overview.html">Overview</a></li>
+                        <li><a href="workflow.html">Workflow</a></li>
+                        <li><a href="tech.html">Tech Stack</a></li>
+                        <li><a href="eda.html">EDA</a></li>
+                        <li><a href="performance.html">Model Performance</a></li>
+                        <li><a href="results.html" class="active">Results</a></li>
+                        <li><a href="screenshots.html">Screenshots</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="page-content" style="padding: 20px 40px;">
+            <h2 style="margin-bottom: 25px;">📌 Final Results</h2>
+            <p style="margin-bottom: 30px;">
+                After rigorous training, validation, and testing, our Linear Regression model was deployed. Below we
+                show a few sample predictions alongside their actual prices to evaluate model behavior.
+            </p>
+
+            <h3 style="margin-top: 30px;">📄 Sample Prediction Table</h3>
+            <table class="styled-table" style="margin-bottom: 30px;">
+                <thead>
+                    <tr>
+                        <th>Car</th>
+                        <th>Year</th>
+                        <th>KM Driven</th>
+                        <th>Fuel</th>
+                        <th>Transmission</th>
+                        <th>Actual Price (₹)</th>
+                        <th>Predicted Price (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maruti Swift</td>
+                        <td>2017</td>
+                        <td>50,000</td>
+                        <td>Petrol</td>
+                        <td>Manual</td>
+                        <td>4.80 L</td>
+                        <td>4.62 L</td>
+                    </tr>
+                    <tr>
+                        <td>Hyundai i20</td>
+                        <td>2018</td>
+                        <td>35,000</td>
+                        <td>Petrol</td>
+                        <td>Manual</td>
+                        <td>5.60 L</td>
+                        <td>5.49 L</td>
+                    </tr>
+                    <tr>
+                        <td>Honda City</td>
+                        <td>2016</td>
+                        <td>75,000</td>
+                        <td>Diesel</td>
+                        <td>Manual</td>
+                        <td>6.20 L</td>
+                        <td>6.03 L</td>
+                    </tr>
+                    <tr>
+                        <td>Toyota Innova</td>
+                        <td>2015</td>
+                        <td>1,10,000</td>
+                        <td>Diesel</td>
+                        <td>Manual</td>
+                        <td>7.80 L</td>
+                        <td>7.50 L</td>
+                    </tr>
+                    <tr>
+                        <td>Ford EcoSport</td>
+                        <td>2017</td>
+                        <td>65,000</td>
+                        <td>Diesel</td>
+                        <td>Manual</td>
+                        <td>6.40 L</td>
+                        <td>6.25 L</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 30px;">📊 Residual Plot</h3>
+            <p style="margin-bottom: 25px;">
+                A residual plot helps visualize the difference between actual and predicted prices. Ideally, residuals
+                should be randomly scattered around 0 — indicating good predictions without systematic errors.
+            </p>
+            <div style="text-align:center; margin-bottom: 30px;">
+                <img src="static/sample_residual_plot.png" alt="Residual Plot"
+                    style="max-width:90%; border-radius:10px;" />
+            </div>
+
+            <h3 style="margin-top: 30px;">🔍 Error Distribution</h3>
+            <p style="margin-bottom: 25px;">
+                We also checked the error distribution. Most prediction errors were under ₹50,000, which is acceptable
+                for this domain.
+            </p>
+            <div style="text-align:center; margin-bottom: 30px;">
+                <img src="static/sample_error_distribution.png" alt="Error Distribution"
+                    style="max-width:90%; border-radius:10px;" />
+            </div>
+
+            <h3 style="margin-top: 30px;">✅ Summary</h3>
+            <ul style="margin-left: 20px; margin-bottom: 30px;">
+                <li>Our final model (LR) achieved strong performance with an R² of 0.91.</li>
+                <li>Most predictions are within 5–10% of actual price — suitable for real-world usage.</li>
+                <li>The web app allows users to input their car details and get an instant estimate.</li>
+                <li>Business stakeholders can use this model to value used cars, automate listing prices, or analyze
+                    price trends.</li>
+            </ul>
+        </section>
+
+        <footer style="text-align: center; padding: 20px 0; background-color: #f2f2f2;">
+            <p>© 2025 Car Price Prediction Project | Made by Sevan Kumar & Neeraj Kumar</p>
+        </footer>
+    </div>
+</body>
+
+</html>

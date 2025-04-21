@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workflow | Car Price Prediction</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="navbar">
+        <h1>🚗 Car Price Prediction</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="workflow.html" class="active">Workflow</a></li>
+            <li><a href="tech.html">Tech Stack</a></li>
+            <li><a href="eda.html">EDA</a></li>
+            <li><a href="performance.html">Model Performance</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="screenshots.html">Screenshots</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <h2 style="margin-bottom: 1rem;">🔁 Project Workflow</h2>
+      <p style="margin-bottom: 1.5rem;">This section describes the entire lifecycle of the project, from collecting data to deploying the final model. The process was broken into clear, sequential phases:</p>
+
+      <h3 style="margin-top: 2rem;">📌 Step-by-Step Process</h3>
+      <ol style="padding-left: 1.2rem; margin-bottom: 2rem;">
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Data Collection:</strong>
+          <ul style="list-style-type: circle; padding-left: 1.5rem;">
+            <li>Dataset sourced from Kaggle with over 8000+ used car listings.</li>
+            <li>Included features: year, km driven, fuel type, transmission, mileage, engine, etc.</li>
+            <li>Target variable: Selling price of used cars (₹).</li>
+          </ul>
+        </li>
+
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Data Cleaning:</strong>
+          <ul style="list-style-type: square; padding-left: 1.5rem;">
+            <li>Handled missing values using imputation or row removal.</li>
+            <li>Standardized units (e.g., “18.9 kmpl” → 18.9).</li>
+            <li>Removed outliers using boxplots and domain knowledge.</li>
+          </ul>
+        </li>
+
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Exploratory Data Analysis (EDA):</strong>
+          <ul style="list-style-type: disc; padding-left: 1.5rem;">
+            <li>Visualized selling price distribution, skewness, and spread.</li>
+            <li>Bar plots for fuel types and transmission categories.</li>
+            <li>Correlation heatmaps and pairplots to check relationships.</li>
+          </ul>
+        </li>
+
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Feature Engineering:</strong>
+          <ul style="list-style-type: dash; padding-left: 1.5rem;">
+            <li>Derived features like car age and brand name.</li>
+            <li>Used Label and One-Hot Encoding for categorical variables.</li>
+            <li>Normalized numerical features for better model accuracy.</li>
+          </ul>
+        </li>
+
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Model Building:</strong>
+          <ul style="list-style-type: circle; padding-left: 1.5rem;">
+            <li>Started with Linear Regression as baseline.</li>
+            <li>Used GridSearchCV for tuning hyperparameters.</li>
+          </ul>
+        </li>
+
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Model Evaluation:</strong>
+          <ul style="list-style-type: square; padding-left: 1.5rem;">
+            <li>Metrics used: R², MAE, MSE for performance comparison.</li>
+            <li>Linear Regression outperformed others with highest accuracy.</li>
+            <li>Cross-validation applied to confirm reliability.</li>
+          </ul>
+        </li>
+
+        <li style="margin-bottom: 1.2rem;">
+          <strong>Deployment:</strong>
+          <ul style="list-style-type: disc; padding-left: 1.5rem;">
+            <li>Pickled the best model for production use.</li>
+            <li>Built Streamlit frontend for interactive prediction.</li>
+            <li>App hosted locally; ready for cloud deployment.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3 style="margin-top: 3rem;">🧭 Visual Flowchart</h3>
+      <div style="text-align: center; margin: 30px 0;">
+        <img src="static/workflow-diagram.png" alt="Workflow Flowchart"
+          style="max-width: 90%; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" />
+      </div>
+
+      <p style="margin-top: 2rem;">
+        Each of these steps is explained in detail in the following pages. You’ll see EDA plots, performance comparisons, and how the prediction system works end-to-end.
+      </p>
+    </main>
+
+    <footer>
+      <p>© 2025 Car Price Prediction Project | Made by Sevan Kumar & Neeraj Kumar</p>
+    </footer>
+  </div>
+</body>
+
+</html>
