@@ -83,7 +83,7 @@ This project presents a complete machine learning-based system for predicting th
 
 ## 📬 Contact
 
-Created with ❤️ by [Your Name].
+Created with ❤️ by Sevan Kumar.
 
 For feedback or queries, open an issue or reach out via the Contact page.
 
